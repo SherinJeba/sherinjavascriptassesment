@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <style type="text/css">
+        body {
+  background-image: url('flight.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: 100%,100%;
+  
+}
+        label{
+            color:rgb(255, 255, 255);
+            display: inline-block;
+            width: 150px;
+            font-size: 20px;
+            font-weight:bold;
+            
+        }
+        form1 input{
+            font-size: 15px;
+        }
+        #r1{
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        #t1{
+            color:white;
+            font-size:25px;
+            font-weight: bold;
+        }
+        #op1{
+            color:white;
+            font-size:25px;
+            font-weight: bold;
+        }
+        #main{
+            display:none;
+        }
+        #s1{
+            display:none;
+        }
+         li{
+            list-style-type: none;
+        }
+        
+       
+    </style>
+
+   </head>
+
+   <body>
+    <h1> Online Ticket Booking</h1><br><br>
+    <form name="form1" onsubmit="return result()" action="new1.html" method="post">
+        <div id="op1" class="opt">
+        <input type="radio" name="choose" id="air" value="air" onclick=" airline()">oneway
+     <input type="radio" name="choose" id="air1" value="Inter" onclick=" airline1()">Return<br><br>     
+    
+    
+        <div id="s1" class="front">
+            <ul>
+            <li> <label for="source"  > Source</label><input type="text" name="source" id="txt2" pattern="[a-zA-Z]{3,}" title="source should be in alphabets" style="padding:10px 25px"/></li><br>
+            <li> <label for="destin"  > Destination</label><input type="text" name="destin" id="txt3" pattern="[a-zA-Z]{3,}" title="destination should be in alphabets"style="padding:10px 25px"></li> <br>
+            
+            <li> <label for="mydate"  > Departure</label>
+                 <input type="date" name="mydate" id="dat" style="padding: 10px 25px"></li>
+            <li> Number of Passenger</li><br>
+            
+               <li> <label for="adult">Adult</label><input type="text" name="adult" id="txt4"pattern="[0-9]" tilte="value should be number"style="padding:10px 25px"/></li><br>
+                <li><label for="child">Children</label><input type="text" name="child" id="txt5"pattern="[0-9]"title="value should be number"style="padding:10px 25px"/></li><br>
+            <li> <label >Passenger1 details</label>
+               Name<input type="text" name="uname" id="txt1"  pattern="[a-zA-Z]{3,}" title="Name should be in alphabets"style="padding:10px 25px"/>      
+               Age<input type="text" name="age" id="txt7" title="Age should be numbers" style="padding:10 px 25px"></li><br>
+               <li><label>Passenger2 details</label>
+                Name <input type="text" name="uname2" id="txt6"  pattern="[a-zA-Z]{3,}" title="Name should be in alphabets"style="padding:10px 25px"/>      
+                Age<input type="text" name="age2" id="txt8" style="padding:10 px 25px"></li><br>
+               
+                <li><label for="gender">Gender</label>
+                    <input type="radio" name="gender" id="m" value="male">Male
+                    <input type="radio" name="gender" id="f" value="female">Female</li>
+                    
+               <li> <label for="mobile"> Mobile Number</label>
+               <input type="number" name="mobile" id="mob"size="25" pattern="[0-9]" title="Enter only digits"style="padding:10px 25px"></li><br>
+               <li> <label for="myemail"  > Email</label>
+               <input type="text" name="myemail" id="em1"size="25"style="padding:10px 25px" ></li>                                                 
+               <li><input type="submit" value="Submit" style="padding:5px 10px"></li></ul>
+                               
+            
+            
+</div>
+</div >
+</form>
+<script>
+function airline()
+        {
+            if(document.getElementById('air').checked)
+            {
+            document.getElementById("s1").style.display="block";
+        }
+        else if(document.getElementById('air1').checked)
+        {
+            document.getElementById("s1").style.display="block";
+        }
+        else{
+                alert("select any one choice");
+        }
+            
+        }
+       function result() 
+       {
+        let src=document.form1.source.value;
+         let des=document.form1.destin.value;
+         let ad=document.form1.adult.value;
+         let chi=document.form1.child.value;
+         let name1=document.form1.uname.value;
+         let name2=document.form1.uname2.value;
+         let a1=document.form1.age.value;
+          let a2=document.form2.age2.value;
+          let mobile1=document.form1.mobile.value
+          let mymail=document.form1.myemail.value;
+        if  (src==="" || des===""||ad==="" ||chi===""||a1===""||a2===""||mobile1===""||mymail==="")
+                        {
+                           alert( "Text field should not be empty");
+                           return false;
+                        }
+                        
+                let curdate=new Date();
+                 let dob2=Date(document.form1.mydate.value)
+
+                 if (dob2<curdate)
+                        {
+                           alert( "enter valid date to travel");
+                           return false;
+                        }
+                        if(isNaN(a1))
+                        {  
+                        document.getElementById("txt7").innerHTML="Enter Numeric value only";  
+                         return false;  
+                        }else{  
+                        return true;  
+                         }  
+                         if(isNan(a2))
+                         {
+                            document.getElementById("txt8").innerHTML="Enter Numeric value only";
+                         }
+                         else{
+                            return true;
+                         }
+                        
+                        if (gender.value === "") {
+                        alert("Please select your gender!");
+                         return false;
+                         }
+                        
+                         if(document.getElementById('m').checked == true) {   
+                            document.getElementById("g1").innerHTML = document.getElementById("m").value  + " is selected"; 
+              
+                        } else if(document.getElementById('f').checked == true) {   
+                            document.getElementById("g1").innerHTML = document.getElementById("f").value  + " is selected"; 
+              
+                        }  
+                        else
+                        {
+                            alert("select the gender");
+                        }
+                        let attherate=mymail.indexOf("@");
+                        let atthedot=mymail.lastIndexOf(".");
+
+                    if (attherate<1 || atthedot<attherate+2 || atthedot>=mymail.length)
+                  {
+                     alert( "enter a valid email address");
+                     return false;
+                  }        
+                  
+                if (mobile1.length==10)
+                    {
+                        return true;
+                    }
+                    else      
+                    {
+                    alert( "mobile number should be of 10 digits");
+                     return false;
+                    }
+                }
+            
+    </script>
+   </body>
+
+</html>

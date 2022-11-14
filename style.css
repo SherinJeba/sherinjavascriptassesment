@@ -1,0 +1,46 @@
+body {
+    background-image: url('auspic.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: 100%,100%;
+    
+  }
+          label{
+              color:rgb(255, 255, 255);
+              display: inline-block;
+              width: 200px;
+              font-size: 25px;
+              font-weight:bold;
+              
+          }
+          form1 input{
+              font-size: 15px;
+          }
+          #r1{
+              color: white;
+              font-size: 30px;
+              font-weight: bold;
+          }
+          #t1{
+              color:white;
+              font-size:25px;
+              font-weight: bold;
+          }
+          #op1{
+              color:white;
+              font-size:25px;
+              font-weight: bold;
+          }
+          #main{
+              display:none;
+          }
+          #s1{
+              display:none;
+          }
+          /*#sel{
+              display:none;
+          }*/
+           li{
+              list-style-type: none;
+          }
+         
